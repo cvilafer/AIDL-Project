@@ -50,7 +50,7 @@ The script accepts the following command-line arguments:
   Example:
 
   ```bash
-  --dataset_dir "./datasets/MS-ASL"
+  --dataset_dir "./MS-ASL-Dataset"
   ```
 
 - **--dataset_file**
@@ -82,12 +82,12 @@ The script accepts the following command-line arguments:
 To run the script with custom arguments:
 
 ```bash
-python dataset_slicer.py --dataset_dir "./datasets/MS-ASL" --dataset_file "MSASL_train.json" --max_classes 50
+python dataset_slicer.py --dataset_dir "./MS-ASL-Dataset" --dataset_file "MSASL_train.json" --max_classes 50
 ```
 
 This command will:
 
-1. Look for the dataset file `MSASL_train.json` in the `./datasets/MS-ASL` directory.
+1. Look for the dataset file `MSASL_train.json` in the `./MS-ASL-Dataset` directory.
 2. Slice the dataset to include only the first 50 classes.
 3. Save the sliced dataset as a new JSON file in the same directory.
 
@@ -110,7 +110,7 @@ The script accepts the following command-line arguments:
   Example:
 
   ```bash
-  --dataset_dir "./datasets/MS-ASL"
+  --dataset_dir "./MS-ASL-Dataset"
   ```
 
 - **--dataset_file**
@@ -134,7 +134,7 @@ The script accepts the following command-line arguments:
   Example:
 
   ```bash
-  --videos_dir "./output/videos"
+  --videos_dir "./videos"
   ```
 
 - **--reports_dir**
@@ -146,7 +146,7 @@ The script accepts the following command-line arguments:
   Example:
 
   ```bash
-  --reports_dir "./output/reports"
+  --reports_dir "./reports"
   ```
 
 ### Usage Example
@@ -154,12 +154,61 @@ The script accepts the following command-line arguments:
 To run the script with custom arguments:
 
 ```bash
-python dataset_extractor.py --dataset_dir "./datasets/MS-ASL" --dataset_file "MSASL_train_sliced.json" --videos_dir "./output/videos" --reports_dir "./output/reports"
+python dataset_extractor.py --dataset_dir "./MS-ASL-Dataset" --dataset_file "MSASL_train_sliced.json" --videos_dir "./videos" --reports_dir "./reports"
 ```
 
 This command will:
 
-1. Look for the dataset file `MSASL_train_sliced.json` in the `./datasets/MS-ASL` directory.
-2. Download the videos specified in the dataset file and save them in the `./output/videos` directory.
+1. Look for the dataset file `MSASL_train_sliced.json` in the `./MS-ASL-Dataset` directory.
+2. Download the videos specified in the dataset file and save them in the `./videos` directory.
 3. Edit the videos to extract clips based on the start and end times provided in the dataset.
-4. Save a report of any failed downloads in the `./output/reports` directory.
+4. Save a report of any failed downloads in the `./reports` directory.
+
+## 3. Dataset Processor
+
+### Description
+
+The **Dataset Processor** script is designed to process the MS-ASL dataset by analyzing each video using MediaPipe Holistic and extracting the landmarks for the face, pose, and hands. These landmarks are saved as JSON files for further analysis or use in machine learning models. The script ensures that all videos in the specified directory are processed and their corresponding landmarks are saved in the output directory.
+
+### Arguments
+
+The script accepts the following command-line arguments:
+
+- **--videos_dir**
+
+  - **Description**: Specifies the relative path to the directory containing the videos to be processed.
+  - **Type**: `str`
+  - **Default**: `./videos`
+
+  Example:
+
+  ```bash
+  --videos_dir "./videos"
+  ```
+
+- **--landmarks_dir**
+
+  - **Description**: Specifies the relative path to the output directory where the landmarks of each video will be saved.
+  - **Type**: `str`
+  - **Default**: `./landmarks`
+
+  Example:
+
+  ```bash
+  --landmarks_dir "./landmarks"
+  ```
+
+### Usage Example
+
+To run the script with custom arguments:
+
+```bash
+python dataset_processor.py --videos_dir "./videos" --landmarks_dir "./landmarks"
+```
+
+This command will:
+
+1. Look for video files in the `./videos` directory.
+2. Process each video using MediaPipe Holistic to extract landmarks for the face, pose, and hands.
+3. Save the extracted landmarks as JSON files in the `./landmarks` directory.
+4. Log the processing status for each video, including any errors or skipped files.

@@ -1,4 +1,5 @@
 import os
+from typing import Optional, List
 
 def file_exists(file_path: str) -> bool:
     """
@@ -12,6 +13,7 @@ def file_exists(file_path: str) -> bool:
     """
     return os.path.isfile(file_path)
 
+
 def directory_exists(directory_path: str) -> bool:
     """
     Check if a directory exists.
@@ -24,6 +26,7 @@ def directory_exists(directory_path: str) -> bool:
     """
     return os.path.isdir(directory_path)
 
+
 def create_directory(directory_path: str):
     """
     Create a directory if it does not exist.
@@ -33,6 +36,7 @@ def create_directory(directory_path: str):
     """
     if not directory_exists(directory_path):
         os.makedirs(directory_path)
+
 
 def join_path(*args: str) -> str:
     """
@@ -59,6 +63,7 @@ def get_absolute_path(relative_path: str) -> str:
     """
     return os.path.abspath(relative_path)
 
+
 def rename_file(old_file_path: str, new_file_path: str):
     """
     Rename a file.
@@ -71,3 +76,54 @@ def rename_file(old_file_path: str, new_file_path: str):
         os.rename(old_file_path, new_file_path)
     else:
         raise FileNotFoundError(f"File {old_file_path} does not exist.")
+    
+
+def get_files_in_directory(directory_path: str, extensions: Optional[List[str]]) -> List[str]:
+    """
+    Get a list of files in a directory with specific extensions.
+
+    Args:
+        directory_path (str): The path to the directory.
+        extensions (Optional[List[str]]): A list of file extensions to filter by. Defaults to None.
+
+    Returns:
+        list: A list of file paths.
+    """
+    if not directory_exists(directory_path):
+        raise FileNotFoundError(f"Directory {directory_path} does not exist.")
+    
+    files = []
+
+    for root, _, filenames in os.walk(directory_path):
+        for filename in filenames:
+            if extensions is None or any(filename.endswith(ext) for ext in extensions):
+                files.append(os.path.join(root, filename))
+
+    return files
+
+
+def get_file_name(file_path: str) -> str:
+    """
+    Get the file name from a file path.
+
+    Args:
+        file_path (str): The path to the file.
+
+    Returns:
+        str: The file name.
+    """
+    return os.path.basename(file_path)
+
+
+def split_file_name(file_path: str) -> str:
+    """
+    Split the file name and extension from a file path.
+
+    Args:
+        file_path (str): The path to the file.
+
+    Returns:
+        str: The file name without the extension.
+        str: The file extension.
+    """
+    return os.path.splitext(os.path.basename(file_path))

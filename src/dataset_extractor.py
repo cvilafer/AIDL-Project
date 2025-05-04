@@ -89,5 +89,5 @@ if len(failed_downloads) > 0:
         "failed_downloads.json"
     )
 
-    json_utils.save_json(report_file_path, DatasetVideo.to_json(failed_downloads))
+    json_utils.save_json(report_file_path, DatasetVideo.to_dict(failed_downloads))
     logger.warning(f"Failed to download {len(failed_downloads)} videos. See report at {report_file_path} for more details.")

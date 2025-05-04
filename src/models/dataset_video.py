@@ -72,7 +72,7 @@ class DatasetVideo:
         )
     
     @staticmethod
-    def to_json(data: List["DatasetVideo"]) -> List[Dict]:
+    def to_dict(data: List["DatasetVideo"]) -> List[Dict]:
         """
         Convert a list of DatasetVideo instances to a list of dictionaries.
 
