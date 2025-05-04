@@ -23,7 +23,7 @@ DATASET_FILE = args.dataset_file
 MAX_CLASSES = args.max_classes
 
 # Initialize logger
-logger = Logger("DatasetSlicer", is_debug_mode=False)
+logger = Logger("DatasetSlicer")
 
 # Get the path to the dataset file
 dataset_file_path = filesystem.join_path(

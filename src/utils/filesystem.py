@@ -24,7 +24,7 @@ def directory_exists(directory_path: str) -> bool:
     """
     return os.path.isdir(directory_path)
 
-def create_directory(directory_path: str) -> None:
+def create_directory(directory_path: str):
     """
     Create a directory if it does not exist.
 
@@ -58,3 +58,16 @@ def get_absolute_path(relative_path: str) -> str:
         str: The absolute path.
     """
     return os.path.abspath(relative_path)
+
+def rename_file(old_file_path: str, new_file_path: str):
+    """
+    Rename a file.
+
+    Args:
+        old_file_path (str): The current file path.
+        new_file_path (str): The new file path.
+    """
+    if file_exists(old_file_path):
+        os.rename(old_file_path, new_file_path)
+    else:
+        raise FileNotFoundError(f"File {old_file_path} does not exist.")

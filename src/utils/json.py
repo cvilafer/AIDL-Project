@@ -1,7 +1,7 @@
 import json
 from typing import Any, Dict
 
-from utils.filesystem import file_exists
+import utils.filesystem as filesystem
 
 def load_json(file_path: str) -> Dict[str, Any]:
     """
@@ -13,28 +13,32 @@ def load_json(file_path: str) -> Dict[str, Any]:
     Returns:
         Dict[str, Any]: The content of the JSON file.
     """
-    if not file_exists(file_path):
-        raise FileNotFoundError(f"File not found: {file_path}")
+    if not filesystem.file_exists(file_path):
+        raise FileNotFoundError(f"File {file_path} was not found")
 
     if not file_path.endswith('.json'):
-        raise ValueError(f"File is not a JSON file: {file_path}")
+        raise ValueError(f"File {file_path} is not a JSON file")
         
     with open(file_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
 
     return data
 
-def json_stringify(data: Dict[str, Any], with_indentation: bool = False) -> None:
+def json_stringify(data: Dict[str, Any], with_indentation: bool = False) -> str:
     """
     Convert JSON data to string format.
 
     Args:
         data (Dict[str, Any]): The JSON data to convert.
-        indent (int): The number of spaces to use for indentation.
+        with_indentation (bool): Whether to format the JSON string with indentation.
+            Default is False (no indentation).
+
+    Returns:
+        str: The JSON data as a string.
     """
     return json.dumps(data, indent= 4 if with_indentation else None)
 
-def save_json(file_path: str, data: Dict[str, Any]) -> None:
+def save_json(file_path: str, data: Dict[str, Any]):
     """
     Save JSON data to a file.
 
