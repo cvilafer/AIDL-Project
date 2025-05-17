@@ -115,7 +115,7 @@ def get_file_name(file_path: str) -> str:
     return os.path.basename(file_path)
 
 
-def split_file_name(file_path: str) -> str:
+def split_file_name(file_path: str) -> List[str]:
     """
     Split the file name and extension from a file path.
 
@@ -123,7 +123,6 @@ def split_file_name(file_path: str) -> str:
         file_path (str): The path to the file.
 
     Returns:
-        str: The file name without the extension.
-        str: The file extension.
+        list: A list containing the file name and extension.
     """
     return os.path.splitext(os.path.basename(file_path))

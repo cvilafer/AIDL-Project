@@ -212,3 +212,53 @@ This command will:
 2. Process each video using MediaPipe Holistic to extract landmarks for the face, pose, and hands.
 3. Save the extracted landmarks as JSON files in the `./landmarks` directory.
 4. Log the processing status for each video, including any errors or skipped files.
+
+## 4. Dataset Cleaner
+
+### Description
+
+The **Dataset Cleaner** script processes the extracted landmarks JSON files for each video, ensuring that all frames have the correct number of landmarks for the face, pose, left hand, and right hand. If any landmarks are missing in a frame, the script fills them with zero coordinates. The cleaned and flattened landmarks for each video are then converted into PyTorch tensors and saved as `.pt` files for efficient loading in future machine learning workflows.
+
+### Arguments
+
+The script accepts the following command-line arguments:
+
+- **--landmarks_dir**
+
+  - **Description**: Specifies the relative path to the directory containing the extracted landmarks JSON files.
+  - **Type**: `str`
+  - **Default**: `./landmarks`
+
+  Example:
+
+  ```bash
+  --landmarks_dir "./landmarks"
+  ```
+
+- **--tensors_dir**
+
+  - **Description**: Specifies the relative path to the output directory where the cleaned tensor files will be saved.
+  - **Type**: `str`
+  - **Default**: `./tensors`
+
+  Example:
+
+  ```bash
+  --tensors_dir "./tensors"
+  ```
+
+### Usage Example
+
+To run the script with custom arguments:
+
+```bash
+python dataset_cleaner.py --landmarks_dir "./landmarks" --tensors_dir "./tensors"
+```
+
+This command will:
+
+1. Look for landmarks JSON files in the `./landmarks` directory.
+2. Process each file, filling missing landmarks with zero coordinates as needed.
+3. Flatten and convert the cleaned landmarks into PyTorch tensors.
+4. Save the resulting tensors as `.pt` files in the `./tensors` directory.
+5. Log the processing status for each video, including any warnings about missing landmarks.

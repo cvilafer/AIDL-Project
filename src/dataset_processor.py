@@ -6,7 +6,7 @@ from utils.logger import Logger
 from utils.mediapipe_holistic import MediapipeHolistic
 import utils.json as json_utils
 
-parser = argparse.ArgumentParser(description="Dataset Processor for MS-ASL - Processes each video with MediaPipe Holistic and extracts the landmarks.")
+parser = argparse.ArgumentParser(description="Dataset Processor - Processes each video with MediaPipe Holistic and extracts the landmarks.")
 parser.add_argument("--videos_dir", type=str, default="./videos", help="Relative path to the output directory where the downloaded videos will be saved from the current terminal location")
 parser.add_argument("--landmarks_dir", type=str, default="./landmarks", help="Relative path to the output directory where the landmarks of each video wiil be saved from the current terminal location")
 
