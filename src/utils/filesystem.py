@@ -71,6 +71,9 @@ def rename_file(old_file_path: str, new_file_path: str):
     Args:
         old_file_path (str): The current file path.
         new_file_path (str): The new file path.
+
+    Raises:
+        FileNotFoundError: If the old file path does not exist.
     """
     if file_exists(old_file_path):
         os.rename(old_file_path, new_file_path)

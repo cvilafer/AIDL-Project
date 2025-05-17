@@ -45,3 +45,16 @@ def save_tensor(tensor: torch.Tensor, file_path: str) -> None:
         file_path (str): The path to the file where the tensor will be saved.
     """
     torch.save(tensor, file_path)
+
+
+def load_tensor(file_path: str) -> torch.Tensor:
+    """
+    Loads the tensor from a file.
+    
+    Args:
+        file_path (str): The path to the file from which the tensor will be loaded.
+
+    Returns:
+        torch.Tensor: The loaded tensor.
+    """
+    return torch.load(file_path)
