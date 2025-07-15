@@ -344,13 +344,11 @@ For detailed specifications, refer to the [original paper](https://arxiv.org/pdf
 - 30 frames per clip and
 - 80 epochs
 
-This experiment uses an LSTM neural network to classify 20 isolated signs from the Greek Sign Language (GSL) dataset. Each video sample is preprocessed into 90 frames of hand landmark coordinates (42 values per frame, using x and y for 21 points per hand).
-
 **Results:** With a Top 1 of less than 20% we concluded this was not the right path.
 
 ![ResNet 2+1 - Accuracy](./report_images/resnet2_plus_1_accuracy.png)
 
-**Conclusions:** These results confirm the hypothesis that the number of samples per class significantly influences model performance.
+**Conclusions:** These results confirm that the model is "memorizing" the training dataset but is unable to make inferences on the validation dataset. This is due to the fact that the datasets contain very few videos per sign and that the overlap between signs in the training, validation, and test datasets is small.
 
 ### The Spoter Transformer
 
