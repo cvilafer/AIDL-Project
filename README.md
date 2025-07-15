@@ -474,7 +474,6 @@ Involve native signers or interpreters to validate system accuracy and gather qu
 Extend the current system to handle continuous sign language recognition, where signs are performed in natural, unsegmented sequences. This would involve adapting the model to detect and classify signs within a stream, simulating real-world conversations.
 
 - **Improve the our model, e.g. increase the number of MLPs** of the Key frame MLP model to see what improvement can be achieved
-- **Add a neural network** at the end to get a nice written text from the isolated words detected by the model, conjugating verbs…
 
 ##
 
