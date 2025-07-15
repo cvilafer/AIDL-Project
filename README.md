@@ -216,6 +216,7 @@ The **test accuracies** we got are:
 | --------------- | --------- | --------------- |
 | **MS-ASL 100**  | 82,18%    | 91,38%          |
 | **MS-ASL 200**  | 75,80%    | 85,35%          |
+| **MS-ASL 500**  | 56,53%    | 76,38%          |
 | **MS-ASL 1000** | 44,75%    | 64,91%          |
 
 Because our model can be seen as an algorithm that uses two MLP’s models and searches for the best key frames, it is normal that the next graphics are not very good but the major part of frames do not have a clear class/sign winner (with a high probability).
@@ -277,11 +278,9 @@ The dataset is imbalanced and contains a relatively small number of samples per 
 
 - Pretraining on a larger sign language dataset before fine-tuning on MSL
 
-###
+### LSTM + Data Augmentation
 
-LSTM + Data Augmentation
-
-**Hypothesis:**The hypothesis is that applying data augmentation techniques such as shifting, scaling, and adding noise to the original MSL dataset would effectively increase the training set size and diversity, allowing the LSTM model to generalize better and achieve higher classification accuracy.
+**Hypothesis:** The hypothesis is that applying data augmentation techniques such as shifting, scaling, and adding noise to the original MSL dataset would effectively increase the training set size and diversity, allowing the LSTM model to generalize better and achieve higher classification accuracy.
 
 **Experiment setup:** This experiment used the same LSTM architecture as in previous tests to classify 25 ASL signs from the MSL dataset. Since the original dataset had too few and unevenly distributed samples per class, data augmentation was applied to artificially increase and **balance** the dataset.  
 The final dataset was constructed with a fixed number of samples per class: 140 training samples, 30 validation samples and 30 test samples.The augmentation techniques applied to generate new samples included:
@@ -348,7 +347,7 @@ For detailed specifications, refer to the [original paper](https://arxiv.org/pdf
 
 ![ResNet 2+1 - Accuracy](./report_images/resnet2_plus_1_accuracy.png)
 
-**Conclusions:** These results confirm that the model is "memorizing" the training dataset but is unable to make inferences on the validation dataset. This is due to the fact that the datasets contain very few videos per sign and that the overlap between signs in the training, validation, and test datasets is small.
+**Conclusions:** These results confirm that the model is "memorizing" the training dataset but is unable to make inferences on the validation dataset. This is due to the fact that the datasets contain very few videos per sign and that the overlap between signs in the training, validation, and test datasets is small. The other conclusion is that training this model has consumed a lot of resources and time (Days of execution of Google VM with GPU support).
 
 ### The Spoter Transformer
 
@@ -429,6 +428,14 @@ We calculated the angles between fingers and for each finger, and also some impo
 **Results:**
 
 For 100 classes Test Accuracy (video): 62.25%
+
+![Sporter Transformer Confusion Matrix](./report_images/spoter_transformer_conf_matrix.png)
+
+For 1000 classes/signs from MS-ASL  Test accuracy: 37%
+
+**Conclusions:** We saw the results were not bad but the KEY Frames MLP model was better. And perhaps due to the lack of samples in the dataset this model didn’t had as good accuracy as Key Frames MLP model.
+
+## STATE OF THE ART
 
 To be able to compare our model results we have searched for the current “state of the art” for the ASL recognition using MS-ASL 1000 and Mediapipe only (like our model). As it can be seen the results with mediapipe models is a lot more modest than with the video/image itself:
 
