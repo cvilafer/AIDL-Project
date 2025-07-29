@@ -1,6 +1,6 @@
 # 🆕 Important Update
 
-📁 It was added the "results" folder with all the data, figues and images from the training and test from the model with the MS-ASL 1000 dataset.
+📁 It was added the "results" folder with all the data, figures and images (best frames) from the training and test from the model with the MS-ASL 1000 dataset.
 
 
 ASL Recognition
