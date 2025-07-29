@@ -3,7 +3,7 @@
 📁 It was added the "results" folder with all the data, figures and images (best frames) from the training and test from the model with the MS-ASL 1000 dataset.
 
 
-#ASL Recognition
+##ASL Recognition
 
 Final project for the 2025 Postgraduate course on Artificial Intelligence with Deep Learning, UPC School, authored by Enrique Bermejo, Enric Dorca, Daniel Muelle and Carles Vila.
 
