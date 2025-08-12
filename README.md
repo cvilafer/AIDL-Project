@@ -24,6 +24,8 @@ https://www.dropbox.com/scl/fo/5vg0ro1yvhd7wkjoomkqb/AOAcxVwMteKypObR4UcoTjs?rlk
 
 # To train the Key Frame MLP Model you can go to the github folder "src/mlp-model" and execute "model_inference.py" in your computer after setting the correct paths to the processed train, val and test datasets...
 
+In the same github folder we have upload the file "MSASL_classes_1000.csv" to filter for the 1000 MS-ASL signs. It should be set in the "csv_filtro_signos" constant of the executable.
+
 See the section "6. MLP Model Scripts" at the end of this README.md file. But because here you have the links to the processed datasets you do not need to use the other executables.
 
 
