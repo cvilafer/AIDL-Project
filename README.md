@@ -1,5 +1,7 @@
 # 🆕 Important Update Dataset 12/8/2025:
 
+(We have activated Issues and Discussions from the repository so you can put your comments there)
+
 We add here the links to the dataset files we have useed in the training (Dropbox):
 
 In the "mp1000_mirror_proc" folder in videos_train and videos_val there are the csv files preprocesed needed for the training.
