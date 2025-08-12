@@ -26,6 +26,13 @@ https://www.dropbox.com/scl/fo/5vg0ro1yvhd7wkjoomkqb/AOAcxVwMteKypObR4UcoTjs?rlk
 
 In the same github folder we have upload the file "MSASL_classes_1000.csv" to filter for the 1000 MS-ASL signs. It should be set in the "csv_filtro_signos" constant of the executable.
 
+The constants SAVED_MODEL_FOLDER and output_img_folder are for output data.
+
+The video_root_folder has to point to the original video test files (the above links from dropbox). Is needed to generates the output frame images.
+
+The original_csv_folder has to point to the subfolder mp1000 from the videos_test folder, where are the csv's without processing. Is needed also to generates the output frame images.
+
+
 See the section "6. MLP Model Scripts" at the end of this README.md file. But because here you have the links to the processed datasets you do not need to use the other executables.
 
 
