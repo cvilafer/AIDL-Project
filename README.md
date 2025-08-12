@@ -22,6 +22,12 @@ videos_train:
 https://www.dropbox.com/scl/fo/5vg0ro1yvhd7wkjoomkqb/AOAcxVwMteKypObR4UcoTjs?rlkey=2ww99rqwvtzjy20oy6qid00s5&st=h61dwbqu&dl=0
 
 
+# To train the Key Frame MLP Model you can go to the github folder "src/mlp-model" and execute "model_inference.py" in your computer after setting the correct paths to the processed train, val and test datasets...
+
+See the section "6. MLP Model Scripts" at the end of this README.md file. But because here you have the links to the processed datasets you do not need to use the other executables.
+
+
+
 Results also can be downloaded from Dropbox:
 
 https://www.dropbox.com/scl/fo/binpeyyuk936qw7sx5on2/ABJ62cXAoH86P-r_oK7PLzs?rlkey=apw5e6elj46p8a7roi07fp0br&st=8rbnr7wf&dl=0
