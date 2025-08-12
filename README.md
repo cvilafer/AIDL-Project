@@ -22,6 +22,10 @@ videos_train:
 https://www.dropbox.com/scl/fo/5vg0ro1yvhd7wkjoomkqb/AOAcxVwMteKypObR4UcoTjs?rlkey=2ww99rqwvtzjy20oy6qid00s5&st=h61dwbqu&dl=0
 
 
+Results also can be downloaded from Dropbox:
+
+https://www.dropbox.com/scl/fo/binpeyyuk936qw7sx5on2/ABJ62cXAoH86P-r_oK7PLzs?rlkey=apw5e6elj46p8a7roi07fp0br&st=8rbnr7wf&dl=0
+
 
 # 🆕 Important Update
 
