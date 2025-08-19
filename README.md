@@ -2,6 +2,8 @@
 
 The final version from the article is in the pdf "ASL_Recognition_document.pdf" in this same folder.
 
+Contact info: cvilafer [at] gmail.com
+
 # 🆕 Important Update Dataset 12/8/2025:
 
 (We have activated Issues and Discussions from the repository so you can put your comments there)
